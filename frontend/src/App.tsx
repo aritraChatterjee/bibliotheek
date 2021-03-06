@@ -2,9 +2,9 @@ import { ThemeProvider } from '@material-ui/core';
 import React from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import theme from './Theme';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import About from './components/About';
+import Header from './components/page/Header';
+import Footer from './components/page/Footer';
+import About from './components/page/About';
 
 function App() {
     return (

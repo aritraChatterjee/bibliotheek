@@ -17,6 +17,13 @@ const theme = createMuiTheme({
                 padding: '25px 0'
             }
         },
+        MuiButton: {
+            root: {
+                borderRadius: 0, //buttons without rounded corners
+                textTransform: 'none', //button label is case sensitive
+                margin: '2px'
+            }
+        },
         MuiLink: {
             underlineNone: {
                 color: '#2c3e50',

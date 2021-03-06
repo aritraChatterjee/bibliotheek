@@ -1,7 +1,8 @@
 import React from 'react';
-import { Container, Typography } from '@material-ui/core';
+import { Button, Container, Typography } from '@material-ui/core';
 import ContainerWithGutter from './ContainerWithGutter';
 import { makeStyles } from '@material-ui/core/styles';
+import { MoodBadSharp } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     skills: {
@@ -23,6 +24,14 @@ const Home = (props: any) => {
                     align="center"
                     className={classes.skills}>
                     Spring boot - Hibernate - React
+                    <br />
+                    <br />
+                    <Button variant={'contained'} color={'primary'}>
+                        Hello
+                    </Button>
+                    <Button variant={'contained'} color={'secondary'}>
+                        World
+                    </Button>
                 </Typography>
             </ContainerWithGutter>
         </Container>
