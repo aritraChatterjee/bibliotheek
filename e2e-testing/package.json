@@ -1,0 +1,19 @@
+{
+	"name": "e2e-testing",
+	"version": "1.0.0",
+	"description": "bibliotheek end-to-end testing module",
+	"main": "index.js",
+	"scripts": {
+		"cy:open": "cypress open"
+	},
+	"keywords": [
+		"cypress",
+		"e2e"
+	],
+	"author": "aritra chatterjee",
+	"license": "ISC",
+	"devDependencies": {
+		"cypress": "^6.6.0",
+		"typescript": "^4.2.3"
+	}
+}
