@@ -1,4 +1,4 @@
-package com.bibliotheek.backend.model;
+package com.bibliotheek.model;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -10,7 +10,6 @@ import lombok.Setter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import java.util.List;
@@ -22,16 +21,21 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Shelf extends BaseJpaEntity {
+public class Library extends BaseJpaEntity {
 
     @NotNull
     private String name;
+    private String address;
 
-    @OneToMany(mappedBy = "shelf", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "library", cascade = CascadeType.ALL, orphanRemoval = true)
     @Setter(AccessLevel.NONE)
-    private List<Book> books;
+    private List<Shelf> shelves;
 
-    @ManyToOne
-    private Library library;
+
+    @OneToMany(mappedBy = "library", cascade = CascadeType.ALL, orphanRemoval = true)
+    @Setter(AccessLevel.NONE)
+    private List<Tag> tags;
 
 }
+
+

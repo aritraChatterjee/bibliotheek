@@ -1,4 +1,4 @@
-package com.bibliotheek.backend.model;
+package com.bibliotheek.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -8,7 +8,10 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
@@ -17,11 +20,15 @@ import javax.persistence.ManyToOne;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Review extends BaseJpaEntity {
-    private int rating;
-    private String reviewDescription;
+public class Tag extends BaseJpaEntity {
+    @NotNull
+    private String name;
+    private String description;
 
     @ManyToOne
-    private Book book;
+    private Library library;
 
+    @ManyToMany(mappedBy = "tags")
+    private List<Book> books;
 }
+

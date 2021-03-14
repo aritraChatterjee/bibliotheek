@@ -1,6 +1,6 @@
-package com.bibliotheek.backend.action;
+package com.bibliotheek.action;
 
-import com.bibliotheek.backend.model.Library;
+import com.bibliotheek.model.Library;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.EntityManager;

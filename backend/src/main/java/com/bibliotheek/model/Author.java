@@ -1,4 +1,4 @@
-package com.bibliotheek.backend.model;
+package com.bibliotheek.model;
 
 import lombok.AccessLevel;
 import lombok.Builder;

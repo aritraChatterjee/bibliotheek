@@ -1,7 +1,7 @@
-package com.bibliotheek.backend.api.controller;
+package com.bibliotheek.api.controller;
 
-import com.bibliotheek.backend.model.Book;
-import com.bibliotheek.backend.service.BookService;
+import com.bibliotheek.model.Book;
+import com.bibliotheek.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

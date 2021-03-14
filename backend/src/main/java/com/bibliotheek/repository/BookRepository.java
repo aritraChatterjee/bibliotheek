@@ -1,6 +1,6 @@
-package com.bibliotheek.backend.repository;
+package com.bibliotheek.repository;
 
-import com.bibliotheek.backend.model.Book;
+import com.bibliotheek.model.Book;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

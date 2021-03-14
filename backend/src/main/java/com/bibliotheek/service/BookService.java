@@ -1,7 +1,7 @@
-package com.bibliotheek.backend.service;
+package com.bibliotheek.service;
 
-import com.bibliotheek.backend.model.Book;
-import com.bibliotheek.backend.repository.BookRepository;
+import com.bibliotheek.model.Book;
+import com.bibliotheek.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
