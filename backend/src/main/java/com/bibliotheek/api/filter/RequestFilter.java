@@ -1,6 +1,5 @@
 package com.bibliotheek.api.filter;
 
-import com.bibliotheek.exception.CustomRuntimeException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -35,22 +34,22 @@ public class RequestFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse res = (HttpServletResponse) response;
 
-        logger.info("Logging Request  {} : {}", req.getMethod(), req.getRequestURI());
+        logger.info("Logging Request received");
 
-        String name = req.getHeader("name");
-        String role = req.getHeader("role");
-        String email = req.getHeader("email");
+        String name = req.getHeader("AA_NAME");
+        String role = req.getHeader("AA_ROLE");
+        String email = req.getHeader("AA_EMAIL");
 
         if (name != null && role != null && email != null) {
             logger.info("This request is valid, proceed with the request. ");
 
             chain.doFilter(req, res);
 
-            logger.info("Logging Response :{}", res.getContentType());
+            logger.info("Logging Response");
 
         } else {
             logger.warn("This request is not valid. ");
-            throw new CustomRuntimeException.ForbiddenException();
+            res.sendError(HttpServletResponse.SC_FORBIDDEN);
         }
 
 
