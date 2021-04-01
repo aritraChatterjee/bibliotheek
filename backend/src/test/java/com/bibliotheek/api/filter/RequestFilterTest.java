@@ -71,27 +71,4 @@ class RequestFilterTest {
     }
 
 
-//    private Map<String, String> createRequestMock() {
-//
-//        // define the headers you want to be returned
-//        Map<String, String> headers = new HashMap<>();
-//        headers.put("AA_NAME", "John");
-//        headers.put("AA_ROLE", "Admin");
-//        headers.put("AA_EMAIL", "abc@gmail.com");
-//
-//        return headers;
-//    }
-
-//    private void createRequestMockWithHeaderNames() {
-
-//        Map<String, String> headers = createRequestMock();
-//        // create an Enumeration over the header keys
-//        Enumeration<String> headerNames = Collections.enumeration(headers.keySet());
-
-    // mock the returned value of request.getHeaderNames()
-//        when(request.getHeaderNames()).thenReturn(headerNames);
-
-//    }
-
-
 }
