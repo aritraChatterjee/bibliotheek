@@ -1,4 +1,4 @@
-package com.bibliotheek.api.filter;
+package com.bibliotheek.integrationTest;
 
 import com.bibliotheek.Application;
 import org.junit.jupiter.api.Assertions;
@@ -18,7 +18,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = Application.class,
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class RequestFilterIntegrationTest {
+public class AasFilterIntegrationTest {
 
     @Autowired
     TestRestTemplate restTemplate;
@@ -41,20 +41,6 @@ public class RequestFilterIntegrationTest {
     }
 
     @Test
-    void isRequestValidWhenPost() {
-
-        final String uri = "http://localhost:" + randomServerPort + "/v1/info";
-
-        HttpHeaders headers = new HttpHeaders();
-        addHeadersWhenValid(headers);
-        HttpEntity<String> entity = new HttpEntity<>(null, headers);
-
-        ResponseEntity<String> responseEntity = restTemplate.postForEntity(uri, entity, String.class);
-        Assertions.assertEquals(200, responseEntity.getStatusCodeValue());
-
-    }
-
-    @Test
     void isRequestNotValidWhenGet() {
         final String uri = "http://localhost:" + randomServerPort + "/v1";
 
@@ -68,14 +54,14 @@ public class RequestFilterIntegrationTest {
     }
 
     private void addHeadersWhenValid(HttpHeaders headers) {
-        headers.add("AA_NAME", "John");
-        headers.add("AA_ROLE", "Admin");
-        headers.add("AA_EMAIL", "abc@gmail.com");
+        headers.add("aa_name", "John");
+        headers.add("aa_role", "Admin");
+        headers.add("aa_email", "abc@gmail.com");
 
     }
 
     private void addHeadersWhenInvalid(HttpHeaders headers) {
-        headers.add("AA_NAME", "John");
+        headers.add("aa_name", "John");
 
     }
 

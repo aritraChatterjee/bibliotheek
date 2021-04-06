@@ -1,6 +1,6 @@
 package com.bibliotheek.config;
 
-import com.bibliotheek.api.filter.RequestFilter;
+import com.bibliotheek.security.filter.AasFilter;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -9,12 +9,12 @@ import org.springframework.context.annotation.Configuration;
 public class FilterConfig {
 
     @Bean
-    public FilterRegistrationBean<RequestFilter> loggingFilter() {
-        FilterRegistrationBean<RequestFilter> registrationBean = new FilterRegistrationBean<>();
+    public FilterRegistrationBean<AasFilter> loggingFilter() {
+        FilterRegistrationBean<AasFilter> registrationBean = new FilterRegistrationBean<>();
 
-        registrationBean.setFilter(new RequestFilter());
+        registrationBean.setFilter(new AasFilter());
 
-        registrationBean.addUrlPatterns("/v1/*");
+        registrationBean.addUrlPatterns("/*");
 
         return registrationBean;
 
