@@ -18,7 +18,7 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(classes = Application.class,
         webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-public class AasFilterIntegrationTest {
+class AasFilterIntegrationTest {
 
     @Autowired
     TestRestTemplate restTemplate;
