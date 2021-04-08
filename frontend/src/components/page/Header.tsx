@@ -4,12 +4,14 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import React, { useState } from 'react';
+import Drawer from '@material-ui/core/Drawer';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Link from '@material-ui/core/Link';
 import { Link as RouteLink } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 
@@ -17,7 +19,8 @@ const useStyles = makeStyles((theme) => ({
     brand: {
         fontSize: '1.9em',
         color: '#fff',
-        marginLeft: '15px'
+        marginLeft: '20px',
+        marginRight: '20px'
     },
     tabContainer: {
         marginLeft: 'auto'
@@ -69,20 +72,57 @@ const useStyles = makeStyles((theme) => ({
             width: '20ch'
         }
     },
+    menuHeader: {
+        fontSize: '1.8em',
+        color: '#fff',
+        marginLeft: '20px',
+        marginRight: '20px',
+        minHeight: '54px',
+        paddingTop: '10px',
+        paddingLeft: '10px'
+    },
+    menuItem: {
+        fontSize: '1.3em',
+        listStyleType: 'none',
+        listStyle: 'none'         
+    },
+    menuItemText: {
+        fontSize: '1.5em',
+        marginTop: '-10px',
+        paddingLeft: '10px',
+        paddingRight: '10px',
+        marginRight: '30px'
+    },
+    menuContainer: {
+        width: 200,
+        paddingLeft: 20,
+        paddingRight: 20
+    },
     grow: {
         flexGrow: 1
     }
 }));
 
-const Header = (props: any) => {
+const Header = () => {
     const classes = useStyles();
 
     const [value, setValue] = useState(1);
+
+    const [open, isOpen] = useState(false);
+
+    const toggleDrawer = (toggle: any) => (event: any) => {
+        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+            return;
+        }
+
+        isOpen(toggle);
+    };
 
     const preventDefault = () => {
         console.log('[Header] : preventDefault ');
     };
 
+    {/* event is created but never used- should remove or keep it */}
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
         setValue(newValue);
     };
@@ -93,7 +133,30 @@ const Header = (props: any) => {
                 <Container fixed>
                     <Toolbar>
                         <IconButton color="inherit" aria-label="menu">
-                            <MenuIcon />
+                            <MenuIcon onClick={toggleDrawer(true)} />
+                            <div>
+                                <React.Fragment key={'left'}>
+                                    <Drawer
+                                        anchor={'left'}
+                                        open={open}
+                                        onClose={toggleDrawer(false)}
+                                    >
+                                        {/* starts leftmenu drawer */}
+                                        <AppBar elevation={0} position="relative" >
+                                           <div id="leftMenu" className={classes.menuContainer}></div>
+                                               <Typography className={classes.menuHeader}>
+                                                         bibliotheek
+                                               </Typography>
+                                        </AppBar> 
+                                        <ul className={classes.menuItem}>
+                                            <li>
+                                                <LibraryBooksIcon/>
+                                                <span className={classes.menuItemText}>My Books</span>                                                
+                                            </li>
+                                        </ul>
+                                    </Drawer>
+                                </React.Fragment>
+                            </div>
                         </IconButton>
                         <Link
                             href="#"
