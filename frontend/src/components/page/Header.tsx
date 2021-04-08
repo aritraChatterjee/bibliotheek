@@ -92,15 +92,13 @@ const useStyles = makeStyles((theme) => ({
     menuItemText: {
         marginTop: '-5px',
         paddingLeft: '30px',
-        marginBottom: '10px'
+        marginBottom: '20px',
+        fontWeight: 500
     },
     itemIcon:{
         paddingTop: '5px',
         width: '20px',
         float: 'left'
-    },
-    menuItemSize:{
-        fontSize: '1.3em'
     },
     menuContainer: {
         width: 200,
@@ -164,10 +162,8 @@ const Header = () => {
                                                         <LibraryBooksIcon/>
                                                     </div>                                                
                                                     <div className={classes.menuItemText}>
-                                                        <Typography variant= "h4" className={classes.menuItemSize}>
-                                                            My Books
-                                                            </Typography>
-                                                        </div>  
+                                                        My Books
+                                                    </div>  
                                                 </div>                                                                                              
                                             </li>
                                         </ul>
