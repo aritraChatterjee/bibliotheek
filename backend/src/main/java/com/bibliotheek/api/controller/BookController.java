@@ -18,6 +18,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/v1")
 public class BookController {
+
     @Autowired
     private BookService bookService;
 
@@ -32,4 +33,6 @@ public class BookController {
         bookService.deleteAll();
         return new ResponseEntity<>(bookService.list(), HttpStatus.ACCEPTED);
     }
+
+
 }
