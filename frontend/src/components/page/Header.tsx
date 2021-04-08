@@ -81,17 +81,26 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: '10px',
         paddingLeft: '10px'
     },
-    menuItem: {
+    menuList: {
         fontSize: '1.3em',
         listStyleType: 'none',
-        listStyle: 'none'         
+        listStyle: 'none',
+        marginLeft: '-10px'         
+    },
+    menuItem:{
     },
     menuItemText: {
-        fontSize: '1.5em',
-        marginTop: '-10px',
-        paddingLeft: '10px',
-        paddingRight: '10px',
-        marginRight: '30px'
+        marginTop: '-5px',
+        paddingLeft: '30px',
+        marginBottom: '10px'
+    },
+    itemIcon:{
+        paddingTop: '5px',
+        width: '20px',
+        float: 'left'
+    },
+    menuItemSize:{
+        fontSize: '1.3em'
     },
     menuContainer: {
         width: 200,
@@ -148,10 +157,18 @@ const Header = () => {
                                                          bibliotheek
                                                </Typography>
                                         </AppBar> 
-                                        <ul className={classes.menuItem}>
+                                        <ul className={classes.menuList}>
                                             <li>
-                                                <LibraryBooksIcon/>
-                                                <span className={classes.menuItemText}>My Books</span>                                                
+                                                <div className={classes.menuItem}>
+                                                    <div className={classes.itemIcon}>
+                                                        <LibraryBooksIcon/>
+                                                    </div>                                                
+                                                    <div className={classes.menuItemText}>
+                                                        <Typography variant= "h4" className={classes.menuItemSize}>
+                                                            My Books
+                                                            </Typography>
+                                                        </div>  
+                                                </div>                                                                                              
                                             </li>
                                         </ul>
                                     </Drawer>
