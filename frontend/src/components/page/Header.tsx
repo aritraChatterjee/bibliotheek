@@ -4,16 +4,15 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import React, { useState } from 'react';
-import Drawer from '@material-ui/core/Drawer';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Link from '@material-ui/core/Link';
 import { Link as RouteLink } from 'react-router-dom';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
-import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import LeftMenu from './LeftMenu';
 
 const useStyles = makeStyles((theme) => ({
     brand: {
@@ -72,39 +71,6 @@ const useStyles = makeStyles((theme) => ({
             width: '20ch'
         }
     },
-    menuHeader: {
-        fontSize: '1.8em',
-        color: '#fff',
-        marginLeft: '20px',
-        marginRight: '20px',
-        minHeight: '54px',
-        paddingTop: '10px',
-        paddingLeft: '10px'
-    },
-    menuList: {
-        fontSize: '1.3em',
-        listStyleType: 'none',
-        listStyle: 'none',
-        marginLeft: '-10px'         
-    },
-    menuItem:{
-    },
-    menuItemText: {
-        marginTop: '-5px',
-        paddingLeft: '30px',
-        marginBottom: '20px',
-        fontWeight: 500
-    },
-    itemIcon:{
-        paddingTop: '5px',
-        width: '20px',
-        float: 'left'
-    },
-    menuContainer: {
-        width: 200,
-        paddingLeft: 20,
-        paddingRight: 20
-    },
     grow: {
         flexGrow: 1
     }
@@ -143,31 +109,7 @@ const Header = () => {
                             <MenuIcon onClick={toggleDrawer(true)} />
                             <div>
                                 <React.Fragment key={'left'}>
-                                    <Drawer
-                                        anchor={'left'}
-                                        open={open}
-                                        onClose={toggleDrawer(false)}
-                                    >
-                                        {/* starts leftmenu drawer */}
-                                        <AppBar elevation={0} position="relative" >
-                                           <div id="leftMenu" className={classes.menuContainer}></div>
-                                               <Typography className={classes.menuHeader}>
-                                                         bibliotheek
-                                               </Typography>
-                                        </AppBar> 
-                                        <ul className={classes.menuList}>
-                                            <li>
-                                                <div className={classes.menuItem}>
-                                                    <div className={classes.itemIcon}>
-                                                        <LibraryBooksIcon/>
-                                                    </div>                                                
-                                                    <div className={classes.menuItemText}>
-                                                        My Books
-                                                    </div>  
-                                                </div>                                                                                              
-                                            </li>
-                                        </ul>
-                                    </Drawer>
+                                    <LeftMenu open={open} toggleDrawer={toggleDrawer}/>
                                 </React.Fragment>
                             </div>
                         </IconButton>
