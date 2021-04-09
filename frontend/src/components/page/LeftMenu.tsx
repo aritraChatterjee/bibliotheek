@@ -1,4 +1,3 @@
-
 import AppBar from '@material-ui/core/AppBar';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
@@ -20,17 +19,16 @@ const useStyles = makeStyles((theme) => ({
         fontSize: '1.3em',
         listStyleType: 'none',
         listStyle: 'none',
-        marginLeft: '-10px'         
+        marginLeft: '-10px'
     },
-    menuItem:{
-    },
+    menuItem: {},
     menuItemText: {
         marginTop: '-5px',
         paddingLeft: '30px',
         marginBottom: '20px',
         fontWeight: 500
     },
-    itemIcon:{
+    itemIcon: {
         paddingTop: '5px',
         width: '20px',
         float: 'left'
@@ -43,41 +41,38 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const LeftMenu = (props: any) => {
-        const classes = useStyles();
-    
-        const menuListItem = () => {
-            return (
-                <ul className={classes.menuList}>
-                    <li>
-                        <div className={classes.menuItem}>
-                            <div className={classes.itemIcon}>
-                                <LibraryBooksIcon/>
-                            </div>                                                
-                            <div className={classes.menuItemText}>
-                                My Books
-                            </div>  
-                        </div>                                                                                              
-                    </li>
-                </ul>
-            )
-        };
-    
-        return (
-                <Drawer
-                    anchor={'left'}
-                    open={props.open}
-                    onClose={props.toggleDrawer(false)}
-                    >
-                        {/* starts leftmenu drawer */}
-                    <AppBar elevation={0} position="relative" >
-                        <div id="leftMenu" className={classes.menuContainer}></div>
-                            <Typography className={classes.menuHeader}>
-                                    bibliotheek
-                            </Typography>
-                    </AppBar> 
-                    {menuListItem()}
-                </Drawer>
-        )
-    }
+    const classes = useStyles();
 
-    export default LeftMenu;
+    const menuListItem = () => {
+        return (
+            <ul className={classes.menuList}>
+                <li>
+                    <div className={classes.menuItem}>
+                        <div className={classes.itemIcon}>
+                            <LibraryBooksIcon />
+                        </div>
+                        <div className={classes.menuItemText}>My Books</div>
+                    </div>
+                </li>
+            </ul>
+        );
+    };
+
+    return (
+        <Drawer
+            anchor={'left'}
+            open={props.open}
+            onClose={props.toggleDrawer(false)}>
+            {/* starts leftmenu drawer */}
+            <AppBar elevation={0} position="relative">
+                <div id="leftMenu" className={classes.menuContainer}></div>
+                <Typography className={classes.menuHeader}>
+                    bibliotheek
+                </Typography>
+            </AppBar>
+            {menuListItem()}
+        </Drawer>
+    );
+};
+
+export default LeftMenu;

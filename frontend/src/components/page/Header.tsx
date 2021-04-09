@@ -84,7 +84,11 @@ const Header = () => {
     const [open, isOpen] = useState(false);
 
     const toggleDrawer = (toggle: any) => (event: any) => {
-        if (event && event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
+        if (
+            event &&
+            event.type === 'keydown' &&
+            (event.key === 'Tab' || event.key === 'Shift')
+        ) {
             return;
         }
 
@@ -95,7 +99,9 @@ const Header = () => {
         console.log('[Header] : preventDefault ');
     };
 
-    {/* event is created but never used- should remove or keep it */}
+    {
+        /* event is created but never used- should remove or keep it */
+    }
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
         setValue(newValue);
     };
@@ -109,7 +115,10 @@ const Header = () => {
                             <MenuIcon onClick={toggleDrawer(true)} />
                             <div>
                                 <React.Fragment key={'left'}>
-                                    <LeftMenu open={open} toggleDrawer={toggleDrawer}/>
+                                    <LeftMenu
+                                        open={open}
+                                        toggleDrawer={toggleDrawer}
+                                    />
                                 </React.Fragment>
                             </div>
                         </IconButton>
