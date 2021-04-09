@@ -1,0 +1,14 @@
+# Ignore artifacts:
+build
+coverage
+public
+.storybook
+assets
+.gitignore
+.gitkeep
+.prettierignore
+
+# Ignore filetypes
+*.html
+*.md
+*.mdx

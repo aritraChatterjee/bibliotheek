@@ -12,12 +12,14 @@ import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import LeftMenu from './LeftMenu';
 
 const useStyles = makeStyles((theme) => ({
     brand: {
         fontSize: '1.9em',
         color: '#fff',
-        marginLeft: '15px'
+        marginLeft: '20px',
+        marginRight: '20px'
     },
     tabContainer: {
         marginLeft: 'auto'
@@ -74,15 +76,32 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Header = (props: any) => {
+const Header = () => {
     const classes = useStyles();
 
     const [value, setValue] = useState(1);
+
+    const [open, isOpen] = useState(false);
+
+    const toggleDrawer = (toggle: any) => (event: any) => {
+        if (
+            event &&
+            event.type === 'keydown' &&
+            (event.key === 'Tab' || event.key === 'Shift')
+        ) {
+            return;
+        }
+
+        isOpen(toggle);
+    };
 
     const preventDefault = () => {
         console.log('[Header] : preventDefault ');
     };
 
+    {
+        /* event is created but never used- should remove or keep it */
+    }
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
         setValue(newValue);
     };
@@ -93,7 +112,15 @@ const Header = (props: any) => {
                 <Container fixed>
                     <Toolbar>
                         <IconButton color="inherit" aria-label="menu">
-                            <MenuIcon />
+                            <MenuIcon onClick={toggleDrawer(true)} />
+                            <div>
+                                <React.Fragment key={'left'}>
+                                    <LeftMenu
+                                        open={open}
+                                        toggleDrawer={toggleDrawer}
+                                    />
+                                </React.Fragment>
+                            </div>
                         </IconButton>
                         <Link
                             href="#"

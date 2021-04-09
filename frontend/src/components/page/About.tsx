@@ -2,7 +2,6 @@ import React from 'react';
 import { Button, Container, Typography } from '@material-ui/core';
 import ContainerWithGutter from './ContainerWithGutter';
 import { makeStyles } from '@material-ui/core/styles';
-import { MoodBadSharp } from '@material-ui/icons';
 
 const useStyles = makeStyles((theme) => ({
     skills: {
