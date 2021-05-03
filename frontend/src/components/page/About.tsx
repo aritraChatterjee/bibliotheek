@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Home = (props: any) => {
+const About = (props: any) => {
     const classes = useStyles();
     return (
         <Container fixed>
@@ -25,10 +25,16 @@ const Home = (props: any) => {
                     Spring boot - Hibernate - React
                     <br />
                     <br />
-                    <Button variant={'contained'} color={'primary'}>
+                    <Button
+                        variant={'contained'}
+                        color={'primary'}
+                        qa-attr="button-hello">
                         Hello
                     </Button>
-                    <Button variant={'contained'} color={'secondary'}>
+                    <Button
+                        variant={'contained'}
+                        color={'secondary'}
+                        qa-attr="button-world">
                         World
                     </Button>
                 </Typography>
@@ -37,4 +43,4 @@ const Home = (props: any) => {
     );
 };
 
-export default Home;
+export default About;

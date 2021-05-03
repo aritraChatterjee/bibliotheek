@@ -83,7 +83,7 @@ const Header = () => {
 
     const [open, isOpen] = useState(false);
 
-    const toggleDrawer = (toggle: any) => (event: any) => {
+    const toggleDrawer = (toggle: boolean) => (event: any) => {
         if (
             event &&
             event.type === 'keydown' &&
@@ -99,9 +99,7 @@ const Header = () => {
         console.log('[Header] : preventDefault ');
     };
 
-    {
-        /* event is created but never used- should remove or keep it */
-    }
+    // event is created but never used- should remove or keep it
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
         setValue(newValue);
     };

@@ -94,7 +94,8 @@ const Footer = () => {
                         <Link
                             href="https://reactjs.org/"
                             target="_blank"
-                            underline="none">
+                            underline="none"
+                            qa-attr="link-react">
                             <FontAwesomeIcon
                                 className={classes.reactIcon}
                                 icon={faReact}
@@ -102,7 +103,11 @@ const Footer = () => {
                         </Link>
                     </Tooltip>
                     and maintained by &nbsp;
-                    <Link href="#" target="_blank" underline="none">
+                    <Link
+                        href="#"
+                        target="_blank"
+                        underline="none"
+                        qa-attr="link-cnw">
                         codesandwires.com
                     </Link>
                 </Typography>

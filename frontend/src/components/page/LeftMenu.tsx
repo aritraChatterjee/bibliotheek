@@ -40,10 +40,10 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const LeftMenu = (props: any) => {
+const LeftMenu = (props: any): JSX.Element => {
     const classes = useStyles();
 
-    const menuListItem = () => {
+    const menuListItem = (): JSX.Element => {
         return (
             <ul className={classes.menuList}>
                 <li>
