@@ -3,8 +3,8 @@ import '@testing-library/jest-dom/extend-expect';
 import { render, fireEvent, RenderResult } from '@testing-library/react';
 import LeftMenu from '../components/page/LeftMenu';
 
-//not yet completed the testing
-describe('<LeftMenu />', () => {
+//TODO: not yet completed the testing
+describe.skip('<LeftMenu />', () => {
     let component: RenderResult<
         typeof import('@testing-library/dom/types/queries')
     >;
