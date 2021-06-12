@@ -1,5 +1,6 @@
-package com.bibliotheek.api.controller;
+package com.bibliotheek.controller;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -7,18 +8,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * The version v1 of the controller make use of the service pattern
- */
+import static com.bibliotheek.api.documentation.OpenApiConfig.API_ROOT;
+
+@Tag(name = "Info", description = "Gives application info")
 @RestController
-@RequestMapping("/v1")
+@RequestMapping(API_ROOT + "/info")
 public class InfoController {
 
     @Value("${application.version}")
     private String applicationVersion;
 
 
-    @GetMapping(value = "/info")
+    @GetMapping(value = "/")
     public ResponseEntity<String> getInfo() {
         return new ResponseEntity<>(applicationVersion, HttpStatus.ACCEPTED);
     }
