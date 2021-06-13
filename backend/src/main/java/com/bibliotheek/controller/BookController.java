@@ -52,8 +52,10 @@ public class BookController {
             parameters = {@Parameter(name = "id", description = "book id", in = ParameterIn.PATH)})
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "Successful operation"),
-            @ApiResponse(responseCode = "404", description = "Book not found", content = @Content(schema = @Schema(implementation = Long.class),
-                    examples = {@ExampleObject("{}")}))})
+            @ApiResponse(responseCode = "404",
+                    description = "Book not found",
+                    content = @Content(schema = @Schema(implementation = BookDto.class),
+                            examples = {@ExampleObject("{}")}))})
     @GetMapping(value = "/{id}")
     public ResponseEntity<Optional<BookDto>> getBookById(HttpServletRequest request, @RequestParam long id) {
         Optional<BookDto> existingBook = bookService.list()
@@ -67,13 +69,16 @@ public class BookController {
 
     @Operation(description = "Add a new book. Returns book id in response.")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "201", description = "Book created",
+            @ApiResponse(responseCode = "201",
+                    description = "Book created",
                     content = @Content(schema = @Schema(implementation = Long.class),
                             examples = {@ExampleObject("18001")})),
-            @ApiResponse(responseCode = "400", description = "Invalid input",
+            @ApiResponse(responseCode = "400",
+                    description = "Invalid input",
                     content = @Content(schema = @Schema(implementation = Long.class),
                             examples = {@ExampleObject("-1")})),
-            @ApiResponse(responseCode = "409", description = "Book already exists",
+            @ApiResponse(responseCode = "409",
+                    description = "Book already exists",
                     content = @Content(schema = @Schema(implementation = Long.class),
                             examples = {@ExampleObject("-1")}))})
     @PostMapping(value = "/")
