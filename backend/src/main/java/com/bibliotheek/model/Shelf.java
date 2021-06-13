@@ -23,7 +23,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Shelf extends BaseJpaEntity {
-
     @NotNull
     private String name;
 
@@ -33,5 +32,4 @@ public class Shelf extends BaseJpaEntity {
 
     @ManyToOne
     private Library library;
-
 }

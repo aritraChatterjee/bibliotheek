@@ -7,17 +7,13 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class FilterConfig {
-
     @Bean
     public FilterRegistrationBean<AasFilter> loggingFilter() {
         FilterRegistrationBean<AasFilter> registrationBean = new FilterRegistrationBean<>();
 
         registrationBean.setFilter(new AasFilter());
-
         registrationBean.addUrlPatterns("/*");
 
         return registrationBean;
-
     }
-
 }

@@ -1,4 +1,4 @@
-package com.bibliotheek.api.documentation;
+package com.bibliotheek.config;
 
 import io.swagger.v3.oas.models.OpenAPI;
 import io.swagger.v3.oas.models.info.Info;
@@ -12,12 +12,15 @@ public class OpenApiConfig {
     public static final String API_ROOT = API_VERSION;
 
     @Bean
-    public OpenAPI bibliotheekOpenAPI(@Value("${application.environment}") String appDesciption,
+    public OpenAPI bibliotheekOpenApi(@Value("${application.environment}") String appEnvironment,
                                       @Value("${application.version}") String appVersion) {
+
+        var appDescription = "Environment: " + appEnvironment;
+
         return new OpenAPI()
                 .info(new Info()
                         .title("Bibliotheek API")
                         .version(appVersion)
-                        .description(appDesciption));
+                        .description(appDescription));
     }
 }

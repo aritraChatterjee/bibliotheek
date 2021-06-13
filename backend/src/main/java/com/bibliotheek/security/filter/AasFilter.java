@@ -16,7 +16,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-
 /**
  * The filter is used in authentication by checking if the authentication headers are present.
  */
@@ -34,7 +33,6 @@ public class AasFilter implements Filter {
 
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain) throws IOException, ServletException {
-
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
@@ -44,23 +42,17 @@ public class AasFilter implements Filter {
 
         if (receivedHeaders.containsAll(aasHeaders)) {
             logger.info("This request is valid, proceed with the request.");
-
             chain.doFilter(request, response);
-
             logger.info("Logging Response.");
 
         } else {
             logger.warn("This request is not valid.");
             response.sendError(HttpServletResponse.SC_FORBIDDEN);
         }
-
-
     }
 
     @Override
     public void destroy() {
         logger.warn("Destructing Aas filter.");
     }
-
-
 }

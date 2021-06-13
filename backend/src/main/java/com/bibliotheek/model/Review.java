@@ -23,5 +23,4 @@ public class Review extends BaseJpaEntity {
 
     @ManyToOne
     private Book book;
-
 }

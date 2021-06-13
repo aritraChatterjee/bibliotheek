@@ -8,21 +8,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.bibliotheek.api.documentation.OpenApiConfig.API_ROOT;
+import static com.bibliotheek.config.OpenApiConfig.API_ROOT;
 
 @Tag(name = "Info", description = "Gives application info")
 @RestController
 @RequestMapping(API_ROOT + "/info")
 public class InfoController {
-
     @Value("${application.version}")
     private String applicationVersion;
 
-
-    @GetMapping(value = "/")
+    @GetMapping()
     public ResponseEntity<String> getInfo() {
         return new ResponseEntity<>(applicationVersion, HttpStatus.ACCEPTED);
     }
-
 
 }

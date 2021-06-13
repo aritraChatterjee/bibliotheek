@@ -28,17 +28,16 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static com.bibliotheek.api.documentation.OpenApiConfig.API_ROOT;
+import static com.bibliotheek.config.OpenApiConfig.API_ROOT;
 
 @Tag(name = "Books", description = "Apis related to books")
 @RestController
 @RequestMapping(API_ROOT + "/book")
 public class BookController {
-
     @Autowired
     private BookService bookService;
 
-    @GetMapping(value = "/")
+    @GetMapping()
     public ResponseEntity<List<BookDto>> getBooks(HttpServletRequest request) {
         List<BookDto> books = bookService.list()
                 .stream()
@@ -81,13 +80,13 @@ public class BookController {
                     description = "Book already exists",
                     content = @Content(schema = @Schema(implementation = Long.class),
                             examples = {@ExampleObject("-1")}))})
-    @PostMapping(value = "/")
+    @PostMapping()
     public ResponseEntity<Long> createBook(HttpServletRequest request, @RequestBody BookDto book) {
         // TODO: implement logic
         return new ResponseEntity<>(0L, HttpStatus.ACCEPTED);
     }
 
-    @DeleteMapping(value = "/")
+    @DeleteMapping()
     public ResponseEntity<List<BookDto>> deleteBooks() {
         bookService.deleteAll();
         List<BookDto> books = bookService.list()
