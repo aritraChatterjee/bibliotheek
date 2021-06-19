@@ -2,7 +2,7 @@ package com.bibliotheek.controller;
 
 import com.bibliotheek.api.dto.BookDto;
 import com.bibliotheek.service.BookService;
-import com.bibliotheek.transform.BookToBookJsonMapper;
+import com.bibliotheek.transform.BookToBookDtoMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -41,7 +41,7 @@ public class BookController {
     public ResponseEntity<List<BookDto>> getBooks(HttpServletRequest request) {
         List<BookDto> books = bookService.list()
                 .stream()
-                .map(BookToBookJsonMapper::mapToBookJson)
+                .map(BookToBookDtoMapper::mapToBookJson)
                 .collect(Collectors.toList());
 
         return new ResponseEntity<>(books, HttpStatus.ACCEPTED);
@@ -61,7 +61,7 @@ public class BookController {
                 .stream()
                 .filter(book -> book.getId() == id)
                 .findFirst()
-                .map(BookToBookJsonMapper::mapToBookJson);
+                .map(BookToBookDtoMapper::mapToBookJson);
 
         return new ResponseEntity<>(existingBook, HttpStatus.ACCEPTED);
     }
@@ -91,7 +91,7 @@ public class BookController {
         bookService.deleteAll();
         List<BookDto> books = bookService.list()
                 .stream()
-                .map(BookToBookJsonMapper::mapToBookJson)
+                .map(BookToBookDtoMapper::mapToBookJson)
                 .collect(Collectors.toList());
         return new ResponseEntity<>(books, HttpStatus.ACCEPTED);
     }
