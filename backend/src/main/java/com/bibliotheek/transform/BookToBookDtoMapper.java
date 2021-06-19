@@ -8,7 +8,7 @@ public class BookToBookDtoMapper {
         // private constructor
     }
 
-    public static BookDto mapToBookJson(Book book) {
+    public static BookDto mapToBookDto(Book book) {
         //TODO : implement logic
         return new BookDto();
     }

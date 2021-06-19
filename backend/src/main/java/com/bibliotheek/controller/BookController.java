@@ -41,7 +41,7 @@ public class BookController {
     public ResponseEntity<List<BookDto>> getBooks(HttpServletRequest request) {
         List<BookDto> books = bookService.list()
                 .stream()
-                .map(BookToBookDtoMapper::mapToBookJson)
+                .map(BookToBookDtoMapper::mapToBookDto)
                 .collect(Collectors.toList());
 
         return new ResponseEntity<>(books, HttpStatus.ACCEPTED);
@@ -61,7 +61,7 @@ public class BookController {
                 .stream()
                 .filter(book -> book.getId() == id)
                 .findFirst()
-                .map(BookToBookDtoMapper::mapToBookJson);
+                .map(BookToBookDtoMapper::mapToBookDto);
 
         return new ResponseEntity<>(existingBook, HttpStatus.ACCEPTED);
     }
@@ -91,7 +91,7 @@ public class BookController {
         bookService.deleteAll();
         List<BookDto> books = bookService.list()
                 .stream()
-                .map(BookToBookDtoMapper::mapToBookJson)
+                .map(BookToBookDtoMapper::mapToBookDto)
                 .collect(Collectors.toList());
         return new ResponseEntity<>(books, HttpStatus.ACCEPTED);
     }
