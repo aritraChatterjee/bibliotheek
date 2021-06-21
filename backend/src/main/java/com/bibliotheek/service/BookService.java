@@ -9,7 +9,6 @@ import java.util.List;
 
 @Service
 public class BookService {
-
     @Autowired
     private BookRepository bookRepository;
 
@@ -20,5 +19,4 @@ public class BookService {
     public void deleteAll() {
         bookRepository.deleteAll();
     }
-
 }

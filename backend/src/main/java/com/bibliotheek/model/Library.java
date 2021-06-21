@@ -22,7 +22,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Library extends BaseJpaEntity {
-
     @NotNull
     private String name;
     private String address;
@@ -31,11 +30,9 @@ public class Library extends BaseJpaEntity {
     @Setter(AccessLevel.NONE)
     private List<Shelf> shelves;
 
-
     @OneToMany(mappedBy = "library", cascade = CascadeType.ALL, orphanRemoval = true)
     @Setter(AccessLevel.NONE)
     private List<Tag> tags;
-
 }
 
 

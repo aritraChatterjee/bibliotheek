@@ -28,7 +28,7 @@ import java.util.List;
 @Setter
 public class Book extends BaseJpaEntity {
     @NotNull
-    private String name;
+    private String title;
 
     private String language;
 
