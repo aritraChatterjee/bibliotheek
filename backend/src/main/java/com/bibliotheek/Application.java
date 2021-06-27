@@ -1,5 +1,6 @@
 package com.bibliotheek;
 
+import com.bibliotheek.config.ExternalPropertyConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -11,6 +12,11 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  */
 @SpringBootApplication
 public class Application extends SpringBootServletInitializer {
+
+    // This static block loads external properties from the path configured in jboss
+    static {
+        ExternalPropertyConfig.loadExternalProperties("config_path_bibliotheek");
+    }
 
     /*
      * This method is overridden to configure for deploying the application
