@@ -1,29 +1,30 @@
 version: '2'
 services:
-  web-app:
+  bibliotheek-backend:
     build:
       context: .
       dockerfile: Dockerfile
-    image: aritra.edu/web-app
+    image: codesandwires/bibliotheek-backend
     ports:
-      - "8090:9006"
+      - "9001:8080"
+      - "9002:9990"
     networks:
-      - web-app-net
-    container_name: java-web-app
+      - biblioheek-net
+    container_name: bibliotheek-backend
     environment:
-      - SPRING_DATASOURCE_URL=jdbc:postgresql://book-postgres:5432/bookdb
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://bibliotheek-postgres:5432/bookdb
     depends_on:
       - postgres
 
   postgres:
     image: postgres:latest
-    container_name: book-postgres
+    container_name: bibliotheek-postgres
     volumes:
       - postgres-data:/var/lib/postgresql/data
     ports:
       - 25432:5432
     networks:
-      - web-app-net
+      - biblioheek-net
     environment:
       - POSTGRES_USER=dbuser
       - POSTGRES_PASSWORD=db123
@@ -31,7 +32,7 @@ services:
     restart: unless-stopped
 
 networks:
-  web-app-net:
+  biblioheek-net:
     driver: "bridge"
 
 volumes:
