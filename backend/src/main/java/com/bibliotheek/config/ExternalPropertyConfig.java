@@ -12,9 +12,9 @@ public final class ExternalPropertyConfig {
         consoleLog("********************************************************");
 
         String config = Optional.ofNullable(System.getProperty(property)).orElseGet(() -> System.getenv(property));
+        consoleLog("lookup: " + property + " -> '" + config + "'");
 
         if (config != null && !config.trim().equals("")) {
-            consoleLog("lookup: " + property + " -> '" + config + "'");
             consoleLog("using properties from : '" + config + "'");
             System.setProperty("spring.config.location", config);
         } else {
@@ -28,7 +28,7 @@ public final class ExternalPropertyConfig {
      * This method logs to system.out because the property loading must be the first thing the application does and therefore real
      * logging is not loaded yet.
      *
-     * @param logLine
+     * @param logLine log line in string
      */
     private static void consoleLog(String logLine) {
         System.out.println(logLine);
