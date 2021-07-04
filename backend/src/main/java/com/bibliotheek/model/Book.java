@@ -11,6 +11,8 @@ import lombok.Setter;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -30,7 +32,8 @@ public class Book extends BaseJpaEntity {
     @NotNull
     private String title;
 
-    private String language;
+    @Enumerated(EnumType.STRING)
+    private Language language;
 
     @ManyToMany(mappedBy = "books")
     @Setter(AccessLevel.NONE)

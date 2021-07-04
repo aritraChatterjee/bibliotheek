@@ -6,6 +6,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -15,6 +16,7 @@ import static io.swagger.v3.oas.annotations.media.Schema.AccessMode.READ_ONLY;
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
+@Setter
 @Schema(name = "BookJson")
 public class BookDto {
     @Schema(accessMode = READ_ONLY, description = "Book Id in long integer.")
