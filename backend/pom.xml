@@ -11,7 +11,7 @@
 
     <groupId>com.bibliotheek</groupId>
     <artifactId>bibliotheek</artifactId>
-    <version>0.0.1</version>
+    <version>0.1.0</version>
     <packaging>war</packaging>
 
 
@@ -28,6 +28,14 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <!--This is required to deploy the application
+            in a separate application server like Jboss-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-tomcat</artifactId>
+            <scope>provided</scope>
         </dependency>
 
         <dependency>
