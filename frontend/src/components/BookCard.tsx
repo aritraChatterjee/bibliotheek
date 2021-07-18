@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import { Chip, Tooltip } from '@material-ui/core';
 import { Button } from '@material-ui/core';
 import InfoIcon from '@material-ui/icons/InfoOutlined';
+import PeopleIcon from '@material-ui/icons/People';
+import PersonIcon from '@material-ui/icons/Person';
 
 const useStyles = makeStyles({
     root: {
@@ -37,6 +39,9 @@ const useStyles = makeStyles({
     },
     tag: {
         margin: 3
+    },
+    authorIcon: {
+        float: 'right'
     }
 });
 
@@ -88,6 +93,15 @@ const Authors = (props: any): JSX.Element => {
     const authors: string[] = props.authors;
     return (
         <div className={classes.authors}>
+            {authors.length > 1 ? (
+                <CardTooltip title={'This book has mutiple authors'}>
+                    <PeopleIcon className={classes.authorIcon} />
+                </CardTooltip>
+            ) : (
+                <CardTooltip title={'This book has one author'}>
+                    <PersonIcon className={classes.authorIcon} />
+                </CardTooltip>
+            )}
             <Typography className={classes.pos} color="textSecondary">
                 {authors[0]}
             </Typography>
