@@ -1,11 +1,11 @@
 import AppBar from '@material-ui/core/AppBar';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import React, { useState } from 'react';
+import React from 'react';
 import Drawer from '@material-ui/core/Drawer';
 import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
     menuHeader: {
         fontSize: '1.8em',
         color: '#fff',

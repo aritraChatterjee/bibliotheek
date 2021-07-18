@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-    createStyles,
-    makeStyles,
-    Theme,
-    withStyles
-} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import {
     Button,
     Dialog,
@@ -13,12 +8,13 @@ import {
     DialogTitle,
     Table,
     TableBody,
-    TableCell,
     TableHead,
     TableRow
 } from '@material-ui/core';
 import BookIcon from '@material-ui/icons/Book';
 import CloseIcon from '@material-ui/icons/Close';
+import StyledTableCell from './StyledTableCell';
+import StyledTableRow from './StyledTableRow';
 
 const useStyles = makeStyles((theme) => ({
     dialogBody: {
@@ -29,36 +25,21 @@ const useStyles = makeStyles((theme) => ({
         paddingTop: 5,
         float: 'left',
         color: theme.palette.secondary.main
+    },
+    table: {
+        minWidth: 400
     }
 }));
-
-const StyledTableCell = withStyles((theme: Theme) =>
-    createStyles({
-        head: {
-            fontWeight: 700
-        },
-        body: {
-            fontSize: 14
-        }
-    })
-)(TableCell);
-
-const StyledTableRow = withStyles((theme: Theme) =>
-    createStyles({
-        root: {
-            '&:nth-of-type(odd)': {
-                backgroundColor: theme.palette.action.hover
-            }
-        }
-    })
-)(TableRow);
 
 const BookInfoDialog = (props: any) => {
     const classes = useStyles();
 
     const renderDialogContent = () => {
         return (
-            <Table size="small" aria-label="a dense table">
+            <Table
+                className={classes.table}
+                size="small"
+                aria-label="a customized table">
                 <TableHead>
                     <TableRow>
                         <StyledTableCell>Title</StyledTableCell>
