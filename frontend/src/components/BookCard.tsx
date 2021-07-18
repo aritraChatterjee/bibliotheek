@@ -88,16 +88,9 @@ const Authors = (props: any): JSX.Element => {
     const authors: string[] = props.authors;
     return (
         <div className={classes.authors}>
-            {authors.map((item, i) => {
-                return (
-                    <Typography
-                        key={i}
-                        className={classes.pos}
-                        color="textSecondary">
-                        {item}
-                    </Typography>
-                );
-            })}
+            <Typography className={classes.pos} color="textSecondary">
+                {authors[0]}
+            </Typography>
         </div>
     );
 };

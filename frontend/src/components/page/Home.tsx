@@ -5,6 +5,7 @@ import BookShelf from '../BookShelf';
 import { Book } from '../../models/book';
 
 const Home = (props: any) => {
+    // static books list for testing purposes, will be replaced by REST api call
     const books: Book[] = [
         {
             title: 'The Jungle Book',
@@ -16,6 +17,12 @@ const Home = (props: any) => {
             title: 'Twenty Thousand Leagues Under the Sea',
             authors: ['Jules Verne'],
             tags: ['Science Fiction', 'Adventure'],
+            isbn: ''
+        },
+        {
+            title: 'Good Omens',
+            authors: ['Neil Gaiman', 'Terry Pratchett'],
+            tags: ['Fiction'],
             isbn: ''
         }
     ];
