@@ -32,7 +32,10 @@ const useStyles = makeStyles((theme) => ({
         letterSpacing: '1px'
     },
     headerMargin: {
-        marginTop: 150
+        marginTop: 100
+    },
+    menuIcon: {
+        paddingLeft: 0
     },
     search: {
         position: 'relative',
@@ -111,7 +114,10 @@ const Header = () => {
             <AppBar elevation={0} position="fixed">
                 <Container fixed>
                     <Toolbar>
-                        <IconButton color="inherit" aria-label="menu">
+                        <IconButton
+                            className={classes.menuIcon}
+                            color="inherit"
+                            aria-label="menu">
                             <MenuIcon onClick={toggleDrawer(true)} />
                             <div>
                                 <React.Fragment key={'left'}>

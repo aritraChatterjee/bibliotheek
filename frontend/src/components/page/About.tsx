@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Typography } from '@material-ui/core';
+import { Container, Typography } from '@material-ui/core';
 import ContainerWithGutter from './ContainerWithGutter';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -22,15 +22,11 @@ const Home = (props: any) => {
                     color="secondary"
                     align="center"
                     className={classes.skills}>
-                    Spring boot - Hibernate - React
-                    <br />
-                    <br />
-                    <Button variant={'contained'} color={'primary'}>
-                        Hello
-                    </Button>
-                    <Button variant={'contained'} color={'secondary'}>
-                        World
-                    </Button>
+                    Spring boot - Hibernate - React - Material UI
+                </Typography>
+                <br />
+                <Typography variant="overline" display="block" align="center">
+                    version 0.1.0
                 </Typography>
             </ContainerWithGutter>
         </Container>
