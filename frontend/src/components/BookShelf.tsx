@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         marginBottom: 20
     },
     bookContainer: {
-        background: '#f5f5f7',
+        // background: '#f5f5f7',
         padding: 5
     },
     itemIcon: {
@@ -47,7 +47,13 @@ const BookShelf = (props: any) => {
     const renderBooks = () => {
         return books.map((book, i) => {
             return (
-                <BookCard key={i} book={book} readMore={openBookInfoDialog} />
+                <Grid item xs={6} md={3} lg={2}>
+                    <BookCard
+                        key={i}
+                        book={book}
+                        readMore={openBookInfoDialog}
+                    />
+                </Grid>
             );
         });
     };
@@ -60,11 +66,11 @@ const BookShelf = (props: any) => {
             <Typography
                 className={classes.sectionHeading}
                 variant="h5"
-                color="secondary">
+                color="primary">
                 {props.name}
             </Typography>
 
-            <Grid container className={classes.bookContainer}>
+            <Grid container className={classes.bookContainer} spacing={2}>
                 {renderBooks()}
             </Grid>
             <BookInfoDialog

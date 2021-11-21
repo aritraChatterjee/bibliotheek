@@ -28,6 +28,9 @@ const useStyles = makeStyles((theme) => ({
     },
     table: {
         minWidth: 400
+    },
+    dialogActions: {
+        justifyContent: 'center'
     }
 }));
 
@@ -106,14 +109,25 @@ const BookInfoDialog = (props: any) => {
                     Book Info
                 </DialogTitle>
                 <DialogContent dividers>{renderDialogContent()}</DialogContent>
-                <DialogActions>
+                <DialogActions className={classes.dialogActions}>
                     <Button
                         variant={'contained'}
                         color={'primary'}
                         autoFocus
-                        startIcon={<CloseIcon />}
                         onClick={props.handleClose}>
                         Close
+                    </Button>
+                    <Button
+                        variant={'contained'}
+                        color={'primary'}
+                        onClick={props.handleClose}>
+                        Borrow
+                    </Button>
+                    <Button
+                        variant={'contained'}
+                        color={'primary'}
+                        onClick={props.handleClose}>
+                        Add to Wishlist
                     </Button>
                 </DialogActions>
             </Dialog>

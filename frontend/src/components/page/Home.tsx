@@ -24,6 +24,18 @@ const Home = (props: any) => {
             authors: ['Neil Gaiman', 'Terry Pratchett'],
             tags: ['Fiction'],
             isbn: ''
+        },
+        {
+            title: 'Twenty Thousand Leagues Under the Sea',
+            authors: ['Jules Verne'],
+            tags: ['Science Fiction', 'Adventure'],
+            isbn: ''
+        },
+        {
+            title: 'Good Omens',
+            authors: ['Neil Gaiman', 'Terry Pratchett'],
+            tags: ['Fiction'],
+            isbn: ''
         }
     ];
     return (

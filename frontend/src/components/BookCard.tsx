@@ -6,39 +6,38 @@ import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import { Chip, Tooltip } from '@material-ui/core';
 import { Button } from '@material-ui/core';
-import InfoIcon from '@material-ui/icons/InfoOutlined';
 import PeopleIcon from '@material-ui/icons/People';
 import PersonIcon from '@material-ui/icons/Person';
 
 const useStyles = makeStyles({
     root: {
-        width: 250,
-        margin: 10,
-        height: 170,
-        borderRadius: 8,
+        width: 185,
+        background: '#f8f8f8',
+        height: 180,
         borderWidth: 0,
         float: 'left'
     },
     title: {
         fontSize: 16,
-        fontWeight: 700,
-        marginBottom: 5
+        fontWeight: 700
     },
     content: {
-        height: 100
+        height: 110
     },
     actions: {
-        height: 30
+        height: 30,
+        paddingLeft: 15
     },
     pos: {
         fontSize: 14
     },
     authors: {
         height: 20,
-        marginBottom: 5
+        marginBottom: 10
     },
     tag: {
-        margin: 3
+        margin: 3,
+        fontSize: 12
     },
     authorIcon: {
         float: 'right'
@@ -79,7 +78,7 @@ const BookCard = (props: any): JSX.Element => {
                     variant={'contained'}
                     color={'primary'}
                     size={'small'}
-                    startIcon={<InfoIcon />}
+                    // startIcon={<InfoIcon />}
                     onClick={handleReadMore}>
                     Learn more
                 </Button>

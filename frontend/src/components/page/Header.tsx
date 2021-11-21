@@ -102,9 +102,7 @@ const Header = () => {
         console.log('[Header] : preventDefault ');
     };
 
-    {
-        /* event is created but never used- should remove or keep it */
-    }
+    /* event is created but never used- should remove or keep it */
     const handleChange = (event: React.ChangeEvent<{}>, newValue: number) => {
         setValue(newValue);
     };
